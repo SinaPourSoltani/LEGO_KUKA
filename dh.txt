@@ -1,0 +1,29 @@
+a: 𝒂𝒊 – The distance from 𝒁𝑖 to 𝒁𝑖+1 measured along 𝑿𝑖+1 
+0.0159
+0.1116
+0.0399
+0.0
+0.0
+0.0
+alpha: 𝜶𝒊 – The angle from 𝒁𝑖 to 𝒁𝑖+1 measured about 𝑿𝑖+1
+0
+pi
+-pi/2
+pi/2
+-pi/2
+0
+% 
+d: 𝒅𝒊 – The distance from 𝑿𝑖 to 𝑿𝑖 measured along 𝒁𝑖 
+0.0877
+0.0
+0.0956
+0.0638
+0.0
+0.0478
+theta: 𝜽𝒊 – The angle from 𝑿𝑖 to 𝑿𝑖 measured about 𝒁𝑖
+0
+pi
+0
+0
+0
+0

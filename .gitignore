@@ -1,6 +1,8 @@
 
 # Manually added:
 **/venv/**
+*.gif
+*.png
 
 # -------
 # Automatically generated from gitignore.io for ignoring: [macOS, Linux, Windows, VisualStudioCode]

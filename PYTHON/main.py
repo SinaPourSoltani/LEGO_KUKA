@@ -1,10 +1,12 @@
-import time
 import matplotlib.pyplot as plt
 import numpy as np
 import roboticstoolbox as rtb
 from spatialmath import *
 from spatialmath.base import *
 from roboticstoolbox import DHRobot, RevoluteDH
+from sympy import im
+
+from kuka import Robot
 
 def plot_trajectory(robot, qs):
     xs = []
@@ -37,7 +39,7 @@ def plot_trajectory(robot, qs):
             axs[i, j].set_title(titles[j][i])
             axs[i, j].set_ylabel('Displacement' + y_label_units[j])
             axs[i, j].plot(range(len(el)), el)
-            if i == 2: 
+            if i == len(col)-1: 
                 axs[i, j].set_xlabel('Steps')
             else:
                 plt.setp(axs[i, j].get_xticklabels(), visible=False)
@@ -58,6 +60,10 @@ class LegoKuka(DHRobot):
                 RevoluteDH(d=m*0.0478, a=m*0.0, alpha=np.deg2rad(0), offset=0)
             ], name="LegoKuka"
         )
+
+rob = Robot()
+config = [90,10,10,10,10,10]
+rob.set_configuration(config, 50)
 
 robot = LegoKuka()
 home = np.array([0, -np.pi/2, np.pi/2, -np.pi/2, -np.pi/2, 0])

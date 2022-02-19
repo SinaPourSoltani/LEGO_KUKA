@@ -6,7 +6,7 @@ from spatialmath.base import *
 from roboticstoolbox import DHRobot, RevoluteDH
 from sympy import im
 
-from kuka import Robot
+#from kuka import Robot
 
 def plot_trajectory(robot, qs):
     xs = []
@@ -61,20 +61,20 @@ class LegoKuka(DHRobot):
             ], name="LegoKuka"
         )
 
-rob = Robot()
-config = [90,10,10,10,10,10]
-rob.set_configuration(config, 50)
+#rob = Robot()
+#config = [90,10,10,10,10,10]
+#rob.set_configuration(config, 50)
 
 robot = LegoKuka()
-home = np.array([0, -np.pi/2, np.pi/2, -np.pi/2, -np.pi/2, 0])
+home = np.array([0]*6) #[0, -np.pi/2, np.pi/2, -np.pi/2, -np.pi/2, 0])
 
 traj0 = rtb.jtraj(robot.q, home, 30)
 
-T1 = SE3(m*0.09,m*0.08,m*0.01) * SE3.Rx(90, unit='deg')
+T1 = SE3(m*0.01,m*0.04,m*0.03) * SE3.Rz(90, unit='deg') * SE3.Ry(90, unit='deg')
 sol1 = robot.ikine_LM(T1)
 traj1 = rtb.jtraj(home, sol1.q, 30)
 
-T2 = SE3(m*(-0.07),m*(-0.06),m*0.02)
+T2 = SE3(m*(0.07),m*(-0.06),m*0.02) * SE3.Ry(90, unit='deg')
 sol2 = robot.ikine_LM(T2)
 traj2 = rtb.jtraj(sol1.q, sol2.q, 30)
 
